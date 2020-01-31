@@ -10,6 +10,7 @@ spring:
     username: guest
     password: guest
 
+
 #\u9A7C\u5CF0\u547D\u540D
 mybatis:
   configuration:
