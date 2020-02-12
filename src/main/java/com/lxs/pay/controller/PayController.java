@@ -37,24 +37,27 @@ public class PayController {
 
     /**
      * 支付请求  ：  跳转
-     * @param payForm
+     * @param orderId
+     * @param amount
+     * @param bestPayTypeEnum
      * @return
      */
     @PostMapping("/create")
-    public ModelAndView create(@RequestBody PayForm payForm){
-        log.info("payForm = {},  orderId = {}", payForm, payForm.getOrderId());
-        PayResponse response = payService.create(payForm.getOrderId(), payForm.getAmount(), payForm.getPayType());
+    public ModelAndView create(@RequestParam("orderId") String orderId,
+                               @RequestParam("amount") BigDecimal amount,
+                               @RequestParam("payType") BestPayTypeEnum bestPayTypeEnum){
+        PayResponse response = payService.create(orderId, amount, bestPayTypeEnum);
         Map<String, String> map = new HashMap();
 
         //支付方式不同，渲染方式不同
         //微信返回一个二维码地址   WXPAY_NATIVE使用codeUrl
         //支付宝返回一个表单，我们将他渲染到HTML中即可  ALIPAY_PC 使用 body
-        if(payForm.getPayType() == BestPayTypeEnum.WXPAY_NATIVE){
+        if(bestPayTypeEnum == BestPayTypeEnum.WXPAY_NATIVE){
             map.put("codeUrl", response.getCodeUrl());
-            map.put("orderId", payForm.getOrderId());
+            map.put("orderId", orderId);
             map.put("returnUrl", wxAccountConfig.getReturnUrl());
             return new ModelAndView("createForWxNative", map);
-        }else if(payForm.getPayType() == BestPayTypeEnum.ALIPAY_PC){
+        }else if(bestPayTypeEnum == BestPayTypeEnum.ALIPAY_PC){
             map.put("body", response.getBody());
             return new ModelAndView("createForAlipayPC", map);
         }
