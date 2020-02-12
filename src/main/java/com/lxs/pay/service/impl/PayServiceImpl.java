@@ -63,7 +63,7 @@ public class PayServiceImpl implements com.lxs.pay.service.PayService {
 
 
         PayRequest request = new PayRequest();
-        request.setOrderName("8034816-最好的支付sdk");
+        request.setOrderName("xuesenli-最好的支付sdk");
         request.setOrderId(orderId);
         request.setOrderAmount(amount.doubleValue());
         request.setPayTypeEnum(bestPayTypeEnum);

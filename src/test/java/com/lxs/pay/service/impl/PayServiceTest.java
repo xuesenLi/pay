@@ -27,14 +27,14 @@ public class PayServiceTest extends PayApplicationTests {
         //BigDecimal.valueOf(0.01);
         //new BigDecimal("0.01");  千万不要用  new BigDecimal(0.01)会精度丢失。
 
-        payService.create("1232134214", BigDecimal.valueOf(0.01), BestPayTypeEnum.ALIPAY_PC);
+        //payService.create("1232134214", BigDecimal.valueOf(0.01), BestPayTypeEnum.ALIPAY_PC);
 
     }
 
     @Test
     public void sendMessage(){
 
-        amqpTemplate.convertAndSend("payNotify", "hello answer");
+       //amqpTemplate.convertAndSend("payNotify", "hello answer");
 
     }
 

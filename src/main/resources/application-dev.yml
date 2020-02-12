@@ -34,3 +34,5 @@ alipay:
   publicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvjTSufEluNLH3WUDR/xw6Qvr7CW6N5qaXbo525urdavLyC6IVvMNMx9up9WfDmE6kfK8RRAi87XA9xYVbZkFbN/VMJEVhYouuuLiwEU/GsYGLbv8a2lGgc5DAGFNGvTT5J/DBoCvydasV5ACxR1KK45JQ7xyXEG1tCdg+4PtSjpzD/OpJgwYKKdkMh3l8UEANpNfwoOdr4IKVR5Ncc8eo7OsLB6uIUo6WPv5bzBZvIpNjdxWpuVjjz2iZEQjVtkse/Dbi+tedITSq5N2eZO9q8hsAYSWq6TScGmaBI063cMojPYXqzgJxM4RxG0VvSjug+EgFAZQroK4WMJumz4rlQIDAQAB
   notifyUrl: http://th4wqv.natappfree.cc/pay/notify
   returnUrl: http://127.0.0.1
+server:
+  port: 8082
