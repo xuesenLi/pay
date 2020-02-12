@@ -42,7 +42,7 @@ public class PayController {
      * @param bestPayTypeEnum
      * @return
      */
-    @PostMapping("/create")
+    @GetMapping("/create")
     public ModelAndView create(@RequestParam("orderId") String orderId,
                                @RequestParam("amount") BigDecimal amount,
                                @RequestParam("payType") BestPayTypeEnum bestPayTypeEnum){
